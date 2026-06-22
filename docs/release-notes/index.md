@@ -28,7 +28,7 @@ stack: ga 9.4.3
 ### Features and enhancements [elasticsearch-9.4.3-features-enhancements]
 
 Authorization:
-* [Axonius] Replace the axonius.alert_and_incident index with the axonius.alert_finding and axonius.incident indices to `manage`, `create_index`, `read`, `index`, `write`, `delete`, permission for third party agent indices `kibana_system` [#149797](https://github.com/elastic/elasticsearch/pull/149797)
+* Update the built-in `kibana_system` role to grant `manage`, `create_index`, `read`, `index`, `write`, and `delete` privileges on the `axonius.alert_finding` and `axonius.incident` indices, replacing the previous `axonius.alert_and_incident` index [#149797](https://github.com/elastic/elasticsearch/pull/149797)
 
 Data streams:
 * [otel-data] Explicitly map `http.response.status_code` as long [#149631](https://github.com/elastic/elasticsearch/pull/149631)
@@ -37,7 +37,7 @@ ES|QL:
 * Add filter capture for ESQL query [#149535](https://github.com/elastic/elasticsearch/pull/149535)
 
 Inference:
-* Upgrading commons-lang3 version for inference plugin [#150242](https://github.com/elastic/elasticsearch/pull/150242)
+* Upgrade commons-lang3 version for the inference plugin [#150242](https://github.com/elastic/elasticsearch/pull/150242)
 
 Infra/Logging:
 * Add query filter logging to SQL and EQL queries [#150127](https://github.com/elastic/elasticsearch/pull/150127)
@@ -79,7 +79,7 @@ ES|QL:
 * Enforce limit for max nested functions [#149971](https://github.com/elastic/elasticsearch/pull/149971)
 * Fix subquery/fork with inline stats pruning [#149783](https://github.com/elastic/elasticsearch/pull/149783) (issue: [#149589](https://github.com/elastic/elasticsearch/issues/149589))
 * Fix wildcard view resolution losing duplicate copies [#149418](https://github.com/elastic/elasticsearch/pull/149418) (issue: [#149416](https://github.com/elastic/elasticsearch/issues/149416))
-* Fixes wrong warning in expressions with unrolled multivalues [#145968](https://github.com/elastic/elasticsearch/pull/145968)
+* Fix wrong warning in expressions with unrolled multivalues [#145968](https://github.com/elastic/elasticsearch/pull/145968)
 * Make subquery with counter type not present in all branches behave more consistently [#150704](https://github.com/elastic/elasticsearch/pull/150704) (issues: [#150640](https://github.com/elastic/elasticsearch/issues/150640), [#150641](https://github.com/elastic/elasticsearch/issues/150641), [#150644](https://github.com/elastic/elasticsearch/issues/150644), [#150645](https://github.com/elastic/elasticsearch/issues/150645))
 * Resolve surrogates in union type field resolution before plan serialization [#151633](https://github.com/elastic/elasticsearch/pull/151633) (issue: [#151475](https://github.com/elastic/elasticsearch/issues/151475))
 
@@ -99,13 +99,12 @@ Infra/Core:
 
 Machine Learning:
 * Add extra validation in `trained_model` creation [#150227](https://github.com/elastic/elasticsearch/pull/150227)
-* Fix flaky CIoManagerTest/testFileIoGood test [#3017](https://github.com/elastic/ml-cpp/pull/3017)
 
 Mapping:
 * Don't allow runtime fields to shadow fields used in index sort [#150636](https://github.com/elastic/elasticsearch/pull/150636) (issue: [#149500](https://github.com/elastic/elasticsearch/issues/149500))
 
 Query Languages:
-* EQL/SQL: enforce max expression depth checks [#150003](https://github.com/elastic/elasticsearch/pull/150003)
+* EQL/SQL: Enforce max expression depth checks [#150003](https://github.com/elastic/elasticsearch/pull/150003)
 
 Reindex:
 * Fix division of `max_docs` between slices in reindex [#150808](https://github.com/elastic/elasticsearch/pull/150808)
@@ -114,7 +113,6 @@ SQL:
 * Fix CLI tests failures due to unconsumed output [#145967](https://github.com/elastic/elasticsearch/pull/145967) (issues: [#143646](https://github.com/elastic/elasticsearch/issues/143646), [#143645](https://github.com/elastic/elasticsearch/issues/143645))
 
 Search:
-* Add IT covering search during rolling restart [#149667](https://github.com/elastic/elasticsearch/pull/149667) (issue: [#86927](https://github.com/elastic/elasticsearch/issues/86927))
 * Guard against null zeroTermsQuery in cross_fields multi_match [#149935](https://github.com/elastic/elasticsearch/pull/149935) (issue: [#149934](https://github.com/elastic/elasticsearch/issues/149934))
 * Ids Query: Throw `IllegalArgumentException` [#151234](https://github.com/elastic/elasticsearch/pull/151234) (issue: [#150305](https://github.com/elastic/elasticsearch/issues/150305))
 
